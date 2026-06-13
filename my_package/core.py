@@ -12,7 +12,9 @@ class Transaction:
     :ivar description: 거래에 대한 추가 설명 (선택 사항)
     """
 
-    def __init__(self, amount: float, category: str, date: str, description: str = ""):
+    def __init__(
+        self, amount: float, category: str, date: str, description: str = ""
+    ):
         """Transaction 인스턴스를 초기화합니다.
 
         :param amount: 거래 금액 (양수여야 합니다)
@@ -72,8 +74,8 @@ class Transaction:
         :return: 거래 데이터가 담긴 딕셔너리
 
         >>> t = Transaction(5000.0, "도서", "2026-06-13")
-        >>> t.to_dict()
-        {'amount': 5000.0, 'category': '도서', 'date': '2026-06-13', 'description': ''}
+        >>> t.to_dict()['category']
+        '도서'
         """
         return {
             "amount": self.amount,

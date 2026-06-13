@@ -1,4 +1,4 @@
-"""Transaction 클래스를 상속받아 수입(Income)과 지출(Expense) 클래스를 정의하는 모듈입니다."""
+"""Transaction 클래스를 상속받아 수입과 지출 클래스를 정의하는 모듈입니다."""
 
 from my_package.core import Transaction
 
@@ -13,7 +13,14 @@ class Income(Transaction):
     :ivar source: 수입원 (예: 회사, 크몽 등)
     """
 
-    def __init__(self, amount: float, category: str, date: str, description: str = "", source: str = "기타"):
+    def __init__(
+        self,
+        amount: float,
+        category: str,
+        date: str,
+        description: str = "",
+        source: str = "기타",
+    ):
         """Income 인스턴스를 초기화합니다.
 
         :param amount: 수입 금액
@@ -34,9 +41,9 @@ class Income(Transaction):
 
         :return: 포맷팅된 수입 요약 문자열
 
-        >>> inc = Income(50000.0, "부업", "2026-06-13", "디자인 외주", "크몽")
+        >>> inc = Income(50000.0, "부업", "2026-06-13", "디자인", "크몽")
         >>> inc.get_summary()
-        '[수입] [2026-06-13] 부업: 50000.0 (디자인 외주) [수입원: 크몽]'
+        '[수입] [2026-06-13] 부업: 50000.0 (디자인) [수입원: 크몽]'
         """
         base_summary = super().get_summary()
         return f"[수입] {base_summary} [수입원: {self.source}]"
@@ -66,7 +73,14 @@ class Expense(Transaction):
     :ivar payment_method: 결제 수단 (예: 신용카드, 현금)
     """
 
-    def __init__(self, amount: float, category: str, date: str, description: str = "", payment_method: str = "카드"):
+    def __init__(
+        self,
+        amount: float,
+        category: str,
+        date: str,
+        description: str = "",
+        payment_method: str = "카드",
+    ):
         """Expense 인스턴스를 초기화합니다.
 
         :param amount: 지출 금액
@@ -75,9 +89,9 @@ class Expense(Transaction):
         :param description: 지출에 대한 추가 설명
         :param payment_method: 결제 수단
 
-        >>> exp = Expense(8500.0, "식비", "2026-06-13", "점심 국밥", "신용카드")
+        >>> exp = Expense(8500.0, "식비", "2026-06-13", "국밥", "카드")
         >>> exp.payment_method
-        '신용카드'
+        '카드'
         """
         super().__init__(amount, category, date, description)
         self.payment_method = str(payment_method)
@@ -87,9 +101,9 @@ class Expense(Transaction):
 
         :return: 포맷팅된 지출 요약 문자열
 
-        >>> exp = Expense(12000.0, "문화생활", "2026-06-13", "영화 관람", "카카오페이")
+        >>> exp = Expense(12000.0, "영화", "2026-06-13", "", "페이")
         >>> exp.get_summary()
-        '[지출] [2026-06-13] 문화생활: 12000.0 (영화 관람) [결제수단: 카카오페이]'
+        '[지출] [2026-06-13] 영화: 12000.0 [결제수단: 페이]'
         """
         base_summary = super().get_summary()
         return f"[지출] {base_summary} [결제수단: {self.payment_method}]"
