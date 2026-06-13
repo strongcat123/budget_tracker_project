@@ -42,3 +42,18 @@ def test_utils_calculation():
     assert dist["식비"] == 17000.0
     assert dist["교통비"] == 3000.0
     assert "부업" not in dist  # 수입 카테고리는 제외되어야 함
+
+
+def test_utils_edge_cases_with_empty_input():
+    """빈 거래 목록이 입력되었을 때 올바르게 대처하는지 엣지 케이스를 검증합니다."""
+    empty_list = []
+
+    # 1. 빈 목록의 합계 연산 검증 (0.0, 0.0, 0.0 예상)
+    total_inc, total_exp, balance = calculate_totals(empty_list)
+    assert total_inc == 0.0
+    assert total_exp == 0.0
+    assert balance == 0.0
+
+    # 2. 빈 목록의 카테고리 분포 검증 (빈 딕셔너리 {} 예상)
+    dist = get_category_distribution(empty_list)
+    assert dist == {}
