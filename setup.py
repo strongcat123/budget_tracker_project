@@ -5,8 +5,8 @@ from setuptools import setup, find_packages
 setup(
     name="my_package",
     version="0.1.0",
-    author="홍길동",
-    author_email="gildong@example.com",
+    author="박재현",
+    author_email="qkrwogus0528@gmail.com",
     description="객체지향 설계 기반 가계부 및 예산 추적기 패키지",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="markdown",

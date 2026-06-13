@@ -75,5 +75,6 @@ python -m pytest
 
 ## 6. 작성자 정보
 
-이름: 박재현
-학번: 202620863
+- **이름**: 박재현
+- **학번**: 202620863
+- **GitHub 저장소 URL**: https://github.com/strongcat123/budget_tracker_project
